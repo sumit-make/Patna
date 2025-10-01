@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Stock</title>
+  <script>
+    async function fetchStocks() {
+      const res = await fetch("/stocks");
+      const stocks = await res.json();
+      const tableBody = document.getElementById("stockTable");
+      tableBody.innerHTML = "";
+
+      stocks.forEach((s) => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>${s.SerialNo}</td>
+          <td>${s.PONo}</td>
+          <td>${s.PODate}</td>
+          <td>${s.Description}</td>
+          <td>${s.Qty}</td>
+          <td>${s.Cost}</td>
+          <td>${s.BillNo}</td>
+          <td>${s.Supplier}</td>
+          <td>${s.ReceiptDate}</td>
+          <td>${s.DeptLab}</td>
+          <td>${s.Dept}</td>
+          <td>${s.FoundOK}</td>
+          <td>${s.Shortage}</td>
+          <td>${s.Excess}</td>
+          <td>${s.Location}</td>
+          <td>${s.Remarks}</td>
+          <td>
+            <button onclick="editStock('${s._id}')">Edit</button>
+            <button onclick="deleteStock('${s._id}')">Delete</button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    async function deleteStock(id) {
+      if (!confirm("Are you sure?")) return;
+      await fetch(`/stocks/${id}`, { method: "DELETE" });
+      fetchStocks();
+    }
+
+    async function editStock(id) {
+  window.location.href = `edit-stock.html?id=${id}`;
+}
+
+
+    // async function editStock(id) {
+    //   const newRemarks = prompt("Enter new remarks:");
+    //   if (newRemarks !== null) {
+    //     await fetch(`/stocks/${id}`, {
+    //       method: "PUT",
+    //       headers: { "Content-Type": "application/json" },
+    //       body: JSON.stringify({ Remarks: newRemarks })
+    //     });
+    //     fetchStocks();
+    //   }
+    // }
+
+    window.onload = fetchStocks;
+  </script>
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+   <style>
+    /* ===== Table Styling ===== */
+table {
+  width: 95%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+h1{
+  color: #f9f9f9;
+}
+
+thead {
+  background: #800000; /* IIT Patna Maroon */
+  color: #fff;
+}
+
+thead th {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  border-right: 1px solid #f1c40f;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Alternate row coloring for better visibility */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Hover effect for clarity */
+tbody tr:hover {
+  background-color: #fff3e0; /* light yellow highlight */
+  transition: background 0.3s ease;
+}
+
+/* Action buttons */
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+button:first-child {
+  background: #2980b9;
+  color: white;
+}
+
+button:first-child:hover {
+  background: #1f5f8a;
+}
+
+button:last-child {
+  background: #e74c3c;
+  color: white;
+}
+
+button:last-child:hover {
+  background: #c0392b;
+}
+
+footer {
+  background: #222;       
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;   /* broader */
+  font-size: 15px;
+  border-top: 2px solid #444; 
+  margin-top: 40px;
+}
+
+footer .footer-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+footer a {
+  color: #1e90ff;  
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 12px;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 20px;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1e90ff;  /* change to blue on hover */
+  transform: scale(1.2);
+}
+
+
+   </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+   <img src="logo.png" alt="Site Logo">
+    <div class="logo-text">
+      <span class="eng">Indian Institute of Technology Patna</span><br>
+      <span class="hin">भारतीय प्रौद्योगिकी संस्थान पटना</span>
+    </div>
+  </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="add-stock.html">Add </a></li>
+      <li><a href="view-stock.html">View </a></li>
+      <li><a href="reports.html">Reports</a></li>
+    </ul>
+  </nav>
+  <h1>Stock Records</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>SerialNo</th>
+        <th>PO No</th>
+        <th>PO Date</th>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Cost</th>
+        <th>Bill No</th>
+        <th>Supplier</th>
+        <th>Receipt Date</th>
+        <th>Dept/Lab</th>
+        <th>Dept</th>
+        <th>Found OK</th>
+        <th>Shortage</th>
+        <th>Excess</th>
+        <th>Location</th>
+        <th>Remarks</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="stockTable"></tbody>
+  </table>
+   <footer>
+  <div class="footer-content">
+    <p>© 2025 Indian Institute Of Technology Patna</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Contact</a>
+    </p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

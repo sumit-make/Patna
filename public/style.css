@@ -1,0 +1,290 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0; padding: 0;
+ background: #5a2901;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: left;   
+  align-items: center;
+  background: #1a1a1a;              
+  color: #fff;
+  padding: 10px 20px;               /* balanced spacing */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* subtle shadow */
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Logo Container */
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* shows hand when hovered */
+}
+
+/* Logo Image */
+.logo img {
+  height: 50px;  
+  width: auto;      
+  border-radius: 50px; 
+  transition: transform 0.3s ease; }
+
+.logo img:hover {
+  transform: scale(1.1); 
+}
+.ii{
+  margin-left: auto;  
+  font-size: 10px;
+  font-weight: bold;
+
+
+}
+
+.nav-links { list-style: none; display: flex; gap: 70px; }
+.nav-links a { color: white; text-decoration: none; }
+
+.hero { padding: 50px; background: #5a2901; color: white; }
+
+.features { display: flex; justify-content: center; gap: 50px; padding: 20px; }
+.card { background: white; padding: 30px; border-radius: 8px; width: 500px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+
+.form-section { padding: 30px; }
+form input, form button {
+  display: block; margin: 10px auto; padding: 10px; width: 250px;
+}
+
+footer {
+  background: #222;       
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;   /* broader */
+  font-size: 15px;
+  border-top: 2px solid #444; 
+  margin-top: 40px;
+}
+
+footer .footer-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+footer a {
+  color: #1e90ff;  
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 12px;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 20px;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1e90ff;  /* change to blue on hover */
+  transform: scale(1.2);
+}
+
+
+/* new */
+/* ====== Global Reset ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ====== Body ====== */
+body {
+  background: #f5f6fa;
+  color: #333;
+  line-height: 1.6;
+  background: #5a2901;
+}
+
+
+
+.navbar .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #f1c40f; /* golden accent */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #f1c40f;
+  border-bottom: 2px solid #f1c40f;
+}
+
+/* ====== Section & Forms ====== */
+.form-section {
+  max-width: 900px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.form-section:hover {
+  transform: translateY(-5px);
+}
+
+.form-section h1, 
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #800000;
+  font-size: 2rem;
+  border-bottom: 3px solid #f1c40f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* ====== Inputs ====== */
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+form input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  border-color: #800000;
+  outline: none;
+  box-shadow: 0 0 8px rgba(128,0,0,0.3);
+}
+
+/* ====== Buttons ====== */
+button {
+  grid-column: span 2;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #800000, #b22222);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #b22222, #800000);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(128,0,0,0.3);
+}
+
+/* ====== Messages ====== */
+#msg, #csvMsg {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #0a0b0b;
+}
+
+
+/* logo */
+/* ====== Logo Section with English + Hindi ====== */
+/* ====== Navbar ====== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #800000; /* IIT Maroon */
+  padding: 10px 30px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ====== Logo with Text ====== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  height: 55px; /* Adjust size as needed */
+  width: auto;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.7;
+}
+
+.logo-text .eng {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1c40f;  /* Golden highlight */
+}
+
+.logo-text .hin {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ====== Navbar Links ====== */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #f1c40f;
+  border-bottom: 2px solid #f1c40f;
+}
+
+

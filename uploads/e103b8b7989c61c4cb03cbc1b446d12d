@@ -1,0 +1,8 @@
+SerialNo,PO No,PO Date,Description,Qty,Cost,Bill No,Supplier,Receipt Date,Dept/Lab,Dept,Found OK,Shortage,Excess,Location,Remarks
+1,PO123,2025-01-10,Oscilloscope,2,50000,BILL101,TechSupplies Ltd,2025-01-15,Electronics Lab,EEE,Yes,0,0,Shelf A1,New Equipment
+2,PO124,2025-02-05,Arduino Kits,20,1500,BILL102,ElectroMart,2025-02-08,Embedded Systems Lab,CSE,Yes,0,0,Shelf B3,For Student Projects
+3,PO125,2025-03-01,3D Printer,1,75000,BILL103,MakerWorld,2025-03-05,Mechanical Lab,ME,Yes,0,0,Workshop Corner,Installed
+4,PO126,2025-03-15,Laptops,10,55000,BILL104,CompuZone,2025-03-20,Computer Centre,IT,Yes,0,0,CC Room 2,Issued to Faculty
+5,PO127,2025-04-02,Resistors Pack (1000pcs),5,500,BILL105,ResistorMart,2025-04-05,Electronics Lab,EEE,Yes,0,0,Shelf A2,Stocked
+6,PO128,2025-04-18,Projector,3,40000,BILL106,VisionTech,2025-04-22,Seminar Hall,General,Yes,0,0,Hall Store,For Seminars
+7,PO129,2025-05-01,Robotics Kits,15,10000,BILL107,RoboticsHub,2025-05-05,Robotics Lab,ME,Yes,0,0,Labshelf R1,To be Used in Workshop

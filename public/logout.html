@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    /* ===== Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f5f6fa;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #800000;
+      padding: 12px 30px;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+      border-radius: 50%;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-text .eng {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f1c40f;
+    }
+
+    .logo-text .hin {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #f1c40f;
+      border-bottom: 2px solid #f1c40f;
+    }
+
+    /* ===== Layout ===== */
+    .login-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    .login-card {
+      display: flex;
+      width: 900px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+    .left-side {
+      flex: 1;
+      background: linear-gradient(135deg, #800000, #b22222);
+      color: #fff;
+      padding: 50px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .left-side h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .left-side p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .right-side {
+      flex: 1;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .right-side h2 {
+      text-align: center;
+      color: #800000;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    form input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    form input:focus {
+      border-color: #800000;
+      outline: none;
+      box-shadow: 0 0 8px rgba(128,0,0,0.3);
+    }
+
+    form button {
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #800000, #b22222);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    form button:hover {
+      background: linear-gradient(135deg, #b22222, #800000);
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(128,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Site Logo">
+      <div class="logo-text">
+        <span class="eng">Indian Institute of Technology Patna</span><br>
+        <span class="hin">भारतीय प्रौद्योगिकी संस्थान पटना</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="add-stock.html">Add</a></li>
+      <li><a href="view-stock.html">View</a></li>
+      <li><a href="reports.html">Reports</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">SignUp</a></li>
+    </ul>
+  </nav>
+
+  <div class="login-container">
+    <div class="login-card">
+      <!-- Left Side -->
+      <div class="left-side">
+        <h1>Welcome</h1>
+        <p>Stock Management System<br>IIT Patna</p>
+        
+      </div>
+
+      <!-- Right Side -->
+      <div class="right-side">
+        <h2>LogOut</h2>
+        <form action="/logout" method="POST">
+         
+          <button type="submit">LogOut</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

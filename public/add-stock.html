@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Stock</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    footer {
+  background: #222;       
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;   /* broader */
+  font-size: 15px;
+  border-top: 2px solid #444; 
+  margin-top: 40px;
+}
+
+footer .footer-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+footer a {
+  color: #1e90ff;  
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 12px;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 20px;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1e90ff;  /* change to blue on hover */
+  transform: scale(1.2);
+}
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+       <div class="logo">
+   <img src="logo.png" alt="Site Logo">
+    <div class="logo-text">
+      <span class="eng">Indian Institute of Technology Patna</span><br>
+      <span class="hin">भारतीय प्रौद्योगिकी संस्थान पटना</span>
+    </div>
+  </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="add-stock.html">Add</a></li>
+      <li><a href="view-stock.html">View</a></li>
+      <li><a href="reports.html">Reports</a></li>
+      
+    </ul>
+  </nav>
+<section class="form-section">
+  <h1>Add Stock Item</h1>
+  <form id="stockForm">
+    <input type="number" name="SerialNo" placeholder="Serial No" required>
+    <input type="text" name="PONo" placeholder="PO No" required>
+    <input type="date" name="PODate" placeholder="PO Date" required>
+    <input type="text" name="Description" placeholder="Description" required>
+    <input type="number" name="Qty" placeholder="Quantity" required>
+    <input type="number" name="Cost" placeholder="Cost" required>
+    <input type="text" name="BillNo" placeholder="Bill No" required>
+    <input type="text" name="Supplier" placeholder="Supplier" required>
+    <input type="date" name="ReceiptDate" placeholder="Receipt Date" required>
+    <input type="text" name="DeptLab" placeholder="Dept/Lab Allotted" required>
+    <input type="text" name="Dept" placeholder="Department" required>
+    <input type="text" name="FoundOK" placeholder="Items Found OK" required>
+    <input type="number" name="Shortage" placeholder="Shortage">
+    <input type="number" name="Excess" placeholder="Excess">
+    <input type="text" name="Location" placeholder="Location">
+    <input type="text" name="Remarks" placeholder="Remarks">
+    <button type="submit">Add Stock</button>
+  </form>
+  <p id="msg"></p>
+</section>
+
+<section class="form-section">
+  <h2>Upload CSV</h2>
+  <form id="csvForm" enctype="multipart/form-data">
+    <input type="file" id="csvFile" name="csvFile" accept=".csv" required>
+    <button type="submit">Upload CSV</button>
+  </form>
+  <p id="csvMsg"></p>
+</section>
+ <footer>
+  <div class="footer-content">
+    <p>© 2025 Indian Institute Of Technology Patna</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Contact</a>
+    </p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
