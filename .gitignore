@@ -1,0 +1,9 @@
+node_modules/
+# Ignore environment files
+.env
+
+# Ignore logs
+*.log
+
+# Ignore uploads (optional, agar heavy files hain)
+uploads/

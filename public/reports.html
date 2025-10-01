@@ -1,0 +1,289 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style> 
+    h1{
+      color: aliceblue;
+    }
+    footer {
+  background: #222;       
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;   /* broader */
+  font-size: 15px;
+  border-top: 2px solid #444; 
+  margin-top: 40px;
+}
+
+footer .footer-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+footer a {
+  color: #1e90ff;  
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 12px;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 20px;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1e90ff;  /* change to blue on hover */
+  transform: scale(1.2);
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+        <div class="logo">
+   <img src="logo.png" alt="Site Logo">
+    <div class="logo-text">
+      <span class="eng">Indian Institute of Technology Patna</span><br>
+      <span class="hin">भारतीय प्रौद्योगिकी संस्थान पटना</span>
+    </div>
+  </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="add-stock.html">Add</a></li>
+      <li><a href="view-stock.html">View</a></li>
+      <li><a href="reports.html">Reports</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h1>Reports</h1>
+    <button onclick="downloadCSV()">Download CSV</button>
+  </section>
+ <footer>
+  <div class="footer-content">
+    <p>© 2025 Indian Institute Of Technology Patna</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Contact</a>
+    </p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style> 
+    body {
+      background: #111;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    h1 {
+      color: #1e90ff;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    section {
+      text-align: center;
+      padding: 20px;
+    }
+
+    button {
+      background: #1e90ff;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0d6efd;
+    }
+
+    .chart-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #1b1b1b;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    }
+
+    footer {
+      background: #222;       
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 15px;
+      border-top: 2px solid #444; 
+      margin-top: 40px;
+    }
+
+    footer .footer-content {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    footer a {
+      color: #1e90ff;  
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Social Icons */
+    .social-icons {
+      margin-top: 12px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 20px;
+      display: inline-block;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #1e90ff;  
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Site Logo">
+      <div class="logo-text">
+        <span class="eng">Indian Institute of Technology Patna</span><br>
+        <span class="hin">भारतीय प्रौद्योगिकी संस्थान पटना</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="add-stock.html">Add</a></li>
+      <li><a href="view-stock.html">View</a></li>
+      <li><a href="reports.html">Reports</a></li>
+    </ul>
+  </nav>
+
+
+
+  <!-- Graphical Reports -->
+    <h1>Reports</h1>
+  <div class="chart-container">
+    <canvas id="stockChart"></canvas>
+  </div>
+  <section>
+   
+    <button onclick="downloadCSV()">Download CSV</button>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 Indian Institute Of Technology Patna</p>
+      <p>
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Contact</a>
+      </p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Fetch data from backend
+    async function fetchStockData() {
+      try {
+        const res = await fetch("/stocks"); // backend API endpoint
+        const data = await res.json();
+
+        // Extract labels & quantities
+        const labels = data.map(item => item.Description);
+        const quantities = data.map(item => item.Qty);
+
+        // Chart.js render
+        const ctx = document.getElementById("stockChart").getContext("2d");
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [{
+              label: "Stock Quantity",
+              data: quantities,
+              backgroundColor: "rgba(30, 144, 255, 0.7)",
+              borderColor: "rgba(30, 144, 255, 1)",
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { labels: { color: "#fff" } }
+            },
+            scales: {
+              x: { ticks: { color: "#fff" } },
+              y: { ticks: { color: "#fff" }, beginAtZero: true }
+            }
+          }
+        });
+      } catch (err) {
+        console.error("Error fetching stock data:", err);
+      }
+    }
+
+    fetchStockData();
+  </script>
+</body>
+</html>

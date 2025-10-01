@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Stock</title>
+  <script>
+    async function loadStock() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      const res = await fetch(`/stocks/${id}`);
+      const stock = await res.json();
+
+      for (let key in stock) {
+        if (document.getElementById(key)) {
+          document.getElementById(key).value = stock[key];
+        }
+      }
+    }
+
+    async function updateStock(event) {
+      event.preventDefault();
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      const formData = {};
+      document.querySelectorAll("input, textarea").forEach((el) => {
+        formData[el.id] = el.value;
+      });
+
+      await fetch(`/stocks/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      alert("Stock updated successfully!");
+      window.location.href = "view-stock.html";
+    }
+
+    window.onload = loadStock;
+  </script>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body{
+      color:rgb(254, 254, 247);
+      opacity: 1;
+    }
+    footer {
+  background: #222;       
+  color: #0b0a0a;
+  text-align: center;
+  padding: 30px 20px;   /* broader */
+  font-size: 15px;
+  border-top: 2px solid #444; 
+  margin-top: 40px;
+}
+
+footer .footer-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+footer a {
+  color: #1e90ff;  
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 12px;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 20px;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1e90ff;  
+  transform: scale(1.2);
+}
+h1{
+  color: white;
+}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+       <div class="logo">
+   <img src="logo.png" alt="Site Logo">
+    <div class="logo-text">
+      <span class="eng">Indian Institute of Technology Patna</span><br>
+      <span class="hin">भारतीय प्रौद्योगिकी संस्थान पटना</span>
+    </div>
+  </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="add-stock.html">Add </a></li>
+      <li><a href="view-stock.html">View</a></li>
+      <li><a href="reports.html">Reports</a></li>
+    </ul>
+  </nav>
+
+  <h1>Edit Stock</h1>
+  <form onsubmit="updateStock(event)">
+    <label>SerialNo: <input type="number" id="SerialNo" required></label><br>
+    <label>PO No: <input type="text" id="PONo" required></label><br>
+    <label>PO Date: <input type="date" id="PODate"></label><br>
+    <label>Description: <input type="text" id="Description" required></label><br>
+    <label>Qty: <input type="number" id="Qty" required></label><br>
+    <label>Cost: <input type="number" id="Cost" required></label><br>
+    <label>Bill No: <input type="text" id="BillNo"></label><br>
+    <label>Supplier: <input type="text" id="Supplier"></label><br>
+    <label>Receipt Date: <input type="date" id="ReceiptDate"></label><br>
+    <label>Dept/Lab: <input type="text" id="DeptLab"></label><br>
+    <label>Dept: <input type="text" id="Dept"></label><br>
+    <label>Found OK: <input type="text" id="FoundOK"></label><br>
+    <label>Shortage: <input type="number" id="Shortage"></label><br>
+    <label>Excess: <input type="number" id="Excess"></label><br>
+    <label>Location: <input type="text" id="Location"></label><br>
+    <label>Remarks: <textarea id="Remarks"></textarea></label><br><br>
+
+    <button type="submit">Update Stock</button>
+  </form>
+   <footer>
+  <div class="footer-content">
+    <p>© 2025 Indian Institute Of Technology Patna</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Contact</a>
+    </p>
+    <div class="social-icons">
+      <a href="#" aria-label="Insta"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Insta"></a>><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Insta"></a>><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
