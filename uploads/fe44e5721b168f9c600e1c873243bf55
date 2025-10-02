@@ -1,0 +1,11 @@
+SerialNo,PONo,PODate,Description,Qty,Cost,BillNo,Supplier,ReceiptDate,DeptLab,Dept,FoundOK,Shortage,Excess,Location,Remarks
+1,PO123,2025-01-10,Oscilloscope,2,50000,BILL001,ABC Electronics,2025-01-15,Electronics Lab,EE,Yes,0,0,Shelf A3,Checked and working
+2,PO124,2025-01-12,Multimeter,5,2500,BILL002,XYZ Instruments,2025-01-17,Measurement Lab,EE,Yes,0,0,Shelf B1,New batch
+3,PO125,2025-01-15,Soldering Station,3,4500,BILL003,Tech Supplies,2025-01-20,Workshop,ME,Yes,0,0,Shelf C2,Good condition
+4,PO126,2025-01-18,Power Supply,4,12000,BILL004,Delta Power,2025-01-22,Circuit Lab,EE,No,1,0,Shelf A5,One unit faulty
+5,PO127,2025-01-20,Laptop,10,55000,BILL005,Infosys Tech,2025-01-25,Computer Lab,CSE,Yes,0,0,Shelf D1,For lab upgrade
+6,PO128,2025-01-22,3D Printer,1,150000,BILL006,Maker Tools,2025-01-27,Design Lab,ME,Yes,0,0,Shelf E3,Installed and tested
+7,PO129,2025-01-25,Router,6,8000,BILL007,NetConnect,2025-01-30,Networking Lab,CSE,Yes,0,1,Shelf F2,One extra received
+8,PO130,2025-01-28,Arduino Kit,20,1500,BILL008,ElectroHut,2025-02-02,IoT Lab,EE,Yes,0,0,Shelf G1,For student projects
+9,PO131,2025-02-01,Microscope,3,22000,BILL009,ScienceEquip,2025-02-05,Biology Lab,BT,Yes,0,0,Shelf H4,High precision model
+10,PO132,2025-02-05,Projector,2,35000,BILL010,VisualTech,2025-02-10,Seminar Hall,General,Yes,0,0,Shelf I1,Wall mounted

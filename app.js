@@ -30,9 +30,11 @@ const multer = require("multer");
 const storage = multer.memoryStorage();
 
 const fs = require("fs");
+const stream = require("stream");
 const csv = require("csv-parser");
 const session = require("express-session"); 
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ storage: multer.memoryStorage() });
+
 
 
 const app = express();
@@ -44,14 +46,13 @@ app.use(express.static("public"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(
-  session({
-    secret: "mySecretKey",   
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false }, // set true only if using https
-  })
-);
+app.use(session({
+  secret: process.env.SESSION_SECRET || "mySecretKey",
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: process.env.NODE_ENV === "production", sameSite: "none" }
+}));
+
 
 //  Schema & Model
 const stockSchema = new mongoose.Schema({
@@ -100,6 +101,7 @@ async function main() {
 main()
   .then(() => console.log("Connected to DB"))
   .catch((err) => console.error(" DB Error:", err));
+  
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/register.html"));
 });
@@ -230,14 +232,23 @@ app.put("/stocks/:id", async (req, res) => {
 });
 
 app.post("/upload-csv", upload.single("csvFile"), (req, res) => {
-  const results = [];
+  if (!req.file) {
+    return res.status(400).json({ error: "No file uploaded" });
+  }
 
-  fs.createReadStream(req.file.path)
+  const results = [];
+  const readable = new stream.Readable();
+
+  // push file buffer into readable stream
+  readable.push(req.file.buffer);
+  readable.push(null);
+
+  readable
     .pipe(csv())
     .on("data", (data) => results.push(data))
     .on("end", async () => {
       try {
-        // map CSV keys -> Schema keys
+        // map CSV columns to schema fields
         const mapped = results.map(r => ({
           SerialNo: r["SerialNo"],
           PONo: r["PO No"],
@@ -258,21 +269,24 @@ app.post("/upload-csv", upload.single("csvFile"), (req, res) => {
         }));
 
         await Stock.insertMany(mapped);
-        fs.unlinkSync(req.file.path);
 
         res.json({ success: true, message: "CSV uploaded successfully!" });
       } catch (err) {
-        console.error(err);
+        console.error("CSV Save Error:", err);
         res.status(500).json({ error: "Error saving CSV data" });
       }
+    })
+    .on("error", (err) => {
+      console.error("CSV Parse Error:", err);
+      res.status(500).json({ error: "Error parsing CSV" });
     });
-
 });
 
 // Start Server
-app.listen(5000, () => {
-  console.log(" App is listening on port 5000");
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Server running on port ${process.env.PORT || 5000}`);
 });
+
 
 
 

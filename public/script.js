@@ -1,3 +1,4 @@
+
 // Handle Add Stock Form
 document.getElementById("stockForm").addEventListener("submit", async (e) => {
   e.preventDefault();
